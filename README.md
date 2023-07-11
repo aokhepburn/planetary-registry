@@ -1,4 +1,4 @@
-# Bob's Burgers Neighbors
+# Planetary Registry
 
 ![](./finished-project.png)
 
