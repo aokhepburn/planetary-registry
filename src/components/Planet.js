@@ -1,12 +1,13 @@
 import React from "react"
 
-function Planet() {
+function Planet({planet}) {
+    const {name, climate, terrain, population} = planet
     return(
         <tr>
-            <td>NAME</td>
-            <td>CLIMATE</td>
-            <td>TERRAIN</td>
-            <td>POPULATION</td>
+            <td>{name}</td>
+            <td>{climate}</td>
+            <td>{terrain}</td>
+            <td>{population}</td>
         </tr>
     );
 }
