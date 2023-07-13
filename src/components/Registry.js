@@ -13,7 +13,7 @@ function Registry() {
         name: '',
         climate: '',
         terrain: '',
-        population: 0
+        population: '',
     })
 
     useEffect(() => {
@@ -23,13 +23,27 @@ function Registry() {
     }, []
     )
 
+    function postOnSubmit(e) {
+        e.preventDefault()
+
+        fetch('http://localhost:8085/planets', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newPlanet)
+        })
+
+        const newPlanetSet = setPlanets([...planets, newPlanet])
+
+        return newPlanetSet
+    }
+
     return (
         <div className="registry">
             <Search />
             <div className="content">
                 <PlanetList
                     planets={planets} />
-                <NewPlanetForm />
+                <NewPlanetForm newPlanet={newPlanet} setNewPlanet={setNewPlanet} postOnSubmit={postOnSubmit} />
             </div>
         </div>
     )
